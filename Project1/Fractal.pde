@@ -27,9 +27,11 @@ class Fractal
     for (int i = 1; i < maxIterations; i++)
     {
       float red = 255 * (cos((i/2) + PI) + 1) / 2;
-      float blue = 255 * (cos(i/2) + 1) / 2;
-      float green = 255 * (cos((i/2) + (PI / 2)) + 1) / 2;
-      pallete[i] = color(red, green, blue);
+      
+      if (sin(i/2)>= 0)
+        pallete[i] = color(red, 0, 0);
+      else
+        pallete[i] = color(red, red, red);
     }
   }
   
