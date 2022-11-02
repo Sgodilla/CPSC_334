@@ -22,4 +22,4 @@ This project showcases controlling a flight simulator with a gyroscope controlle
 ![Wiring Diagram](https://drive.google.com/uc?id=1Jnf6N-f3SrM3NZQe44Kr2OFziHR7R2KR)
 
 ## Demo Video
-[![Flight Sim Demo]({https://drive.google.com/uc?id=1hGhLJkExyNjBSOGJQeI53Mt2BGlAv9cS})]({https://www.youtube.com/watch?v=XnnCsCA42xY} "Gyro Controlled Flight Sim Demo 1")
+[Flight Sim Demo](https://www.youtube.com/watch?v=XnnCsCA42xY)
