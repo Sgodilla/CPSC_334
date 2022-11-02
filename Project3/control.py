@@ -21,6 +21,7 @@ Sensitivity = 100 # Higher numbers = higher sensitivity
 enCursor = 0    # Start with cursor disabled
 swStateCurr = 0 # Current state of switch
 swStatePrev = 0 # Previous state of switch
+analogState = 0 # State of analog button
 
 def swPressed():
     global swStateCurr
@@ -33,6 +34,7 @@ def loop():
     global enCursor
     global swStateCurr
     global swStatePrev
+    global analogState
 
     while True:
         packet = sock.recv(2048)
@@ -43,9 +45,10 @@ def loop():
         yaw = float(data[2]) * Sensitivity
         brake = int(data[3])
         throttle = int(data[4])
+        analog = int(data[5])
 
         swStatePrev = swStateCurr
-        if (win32api.GetAsyncKeyState(ord('F')) == 1 and win32api.GetAsyncKeyState(win32con.VK_CONTROL) < 0):
+        if (throttle > 0 and brake > 0):
             swStateCurr = 1
         else:
             swStateCurr = 0
@@ -71,19 +74,23 @@ def loop():
         if (enCursor):
             win32api.SetCursorPos((int(x), int(y)))
 
-        if (throttle > 0 and brake > 0):
-            print("Pause")
-            win32api.keybd_event(0x20, 0, 0, 0) # Press SPACE to pause flight sim
-            win32api.keybd_event(0x20, 0, win32con.KEYEVENTF_KEYUP, 0)
-        elif (throttle > 0):
+        if (throttle > 0):
             print("Throttle")
-            win32api.keybd_event(0x21, 0, 0, 0) # Press Page Up
+            win32api.keybd_event(0x21, 0, 0, 0) # Press Page Up to throttle
         elif (brake > 0):
             print("Brake")
-            win32api.keybd_event(0x22, 0, 0, 0) # Press Page Down
+            win32api.keybd_event(0x22, 0, 0, 0) # Press Page Down to brake
         else:
             win32api.keybd_event(0x21, 0, win32con.KEYEVENTF_KEYUP, 0)
             win32api.keybd_event(0x22, 0, win32con.KEYEVENTF_KEYUP, 0)
+
+        if (analog > 100):
+            analogState = 1
+        elif (analogState == 1):
+            win32api.keybd_event(0x47, 0, 0, 0) # Press G key to bring up/down gears
+            win32api.keybd_event(0x47, 0, win32con.KEYEVENTF_KEYUP, 0)
+            analogState = 0
+            
 
 if __name__ == "__main__":
     sock.send('Hello ESP32'.encode())

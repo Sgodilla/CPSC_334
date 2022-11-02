@@ -1,9 +1,3 @@
-// Basic demo for accelerometer readings from Adafruit MPU6050
-
-// ESP32 Guide: https://RandomNerdTutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/
-// ESP8266 Guide: https://RandomNerdTutorials.com/esp8266-nodemcu-mpu-6050-accelerometer-gyroscope-arduino/
-// Arduino Guide: https://RandomNerdTutorials.com/arduino-mpu-6050-accelerometer-gyroscope/
-
 // Gyro Dependencies
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
@@ -25,6 +19,7 @@ char incomingPacket[255];  // buffer for incoming packets
 
 const int throttlePin = 14;
 const int brakePin = 12;
+const int analogPin = A0;
 
 Adafruit_MPU6050 mpu;
 
@@ -32,6 +27,7 @@ void setup(void) {
   // put your setup code here, to run once:
   pinMode(throttlePin, INPUT);
   pinMode(brakePin, INPUT);
+  pinMode(analogPin, INPUT);
 
   int status = WL_IDLE_STATUS;
   Serial.begin(115200);
@@ -147,6 +143,7 @@ void setup(void) {
 void loop() {
   int throttle = digitalRead(throttlePin);
   int brake = digitalRead(brakePin);
+  int analogVal = analogRead(analogPin);
   
   /* Get new sensor events with the readings */
   sensors_event_t a, g, temp;
@@ -155,7 +152,7 @@ void loop() {
   // once we know where we got the inital packet from, send data back to that IP address and port
   Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
   // Print X Acceleration
-  Udp.printf("%f, %f, %f, %i, %i", a.acceleration.x, a.acceleration.y, a.acceleration.z, throttle, brake); // Send Packet of gyro data
+  Udp.printf("%f, %f, %f, %i, %i, %i", a.acceleration.x, a.acceleration.y, a.acceleration.z, throttle, brake, analogVal); // Send Packet of gyro data
   Udp.endPacket();
 
   /* Print out the values */
