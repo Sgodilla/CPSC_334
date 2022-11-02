@@ -19,7 +19,7 @@ This project showcases controlling a flight simulator with a gyroscope controlle
 - Tap the front touch sensor to bring up the aircraft's gears
 
 ## Wiring Diagram
-![Wiring Diagram](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3b498905-44ca-43cd-aa52-283c9f7a1b0c%2FCS334_Diagrams_-_Gyro_Controller.png?table=block&id=2e210604-71a9-436a-a554-8add62f83ed6&spaceId=386a96bb-f4fe-40e0-87d0-68ee4e7a7a06&width=2000&userId=4a988110-3c61-442c-982f-eb6a2a1b2f4e&cache=v2)
+![Wiring Diagram](https://drive.google.com/file/d/1Jnf6N-f3SrM3NZQe44Kr2OFziHR7R2KR/view?usp=share_link)
 
 ## Demo Video
-[![Flight Sim Demo]({https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F12c9ca90-6f26-4d18-a355-ed67aaffe8de%2FFlight_Simulator_Usage.png?table=block&id=a148290c-ba13-4669-8c04-2427b3027bc5&spaceId=386a96bb-f4fe-40e0-87d0-68ee4e7a7a06&width=2000&userId=4a988110-3c61-442c-982f-eb6a2a1b2f4e&cache=v2})]({https://www.youtube.com/watch?v=XnnCsCA42xY} "Gyro Controlled Flight Sim Demo 1")
+[![Flight Sim Demo]({https://drive.google.com/file/d/1hGhLJkExyNjBSOGJQeI53Mt2BGlAv9cS/view?usp=share_link})]({https://www.youtube.com/watch?v=XnnCsCA42xY} "Gyro Controlled Flight Sim Demo 1")
