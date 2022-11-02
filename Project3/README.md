@@ -19,7 +19,7 @@ This project showcases controlling a flight simulator with a gyroscope controlle
 - Tap the front touch sensor to bring up the aircraft's gears
 
 ## Wiring Diagram
-![Wiring Diagram](https://drive.google.com/uc?id=1Jnf6N-f3SrM3NZQe44Kr2OFziHR7R2KR/view?usp=share_link)
+![Wiring Diagram](https://drive.google.com/uc?id=1Jnf6N-f3SrM3NZQe44Kr2OFziHR7R2KR)
 
 ## Demo Video
-[![Flight Sim Demo]({https://drive.google.com/uc?id=1hGhLJkExyNjBSOGJQeI53Mt2BGlAv9cS/view?usp=share_link})]({https://www.youtube.com/watch?v=XnnCsCA42xY} "Gyro Controlled Flight Sim Demo 1")
+[![Flight Sim Demo]({https://drive.google.com/uc?id=1hGhLJkExyNjBSOGJQeI53Mt2BGlAv9cS})]({https://www.youtube.com/watch?v=XnnCsCA42xY} "Gyro Controlled Flight Sim Demo 1")
