@@ -1,9 +1,9 @@
 import win32api, win32con
 import socket
 
-UDP_IP = "172.29.133.66"
+#UDP_IP = "172.29.133.66"
 #UDP_IP = "172.29.133.26" # The IP that is printed in the serial monitor from the ESP32
-#UDP_IP = "172.29.16.108"
+UDP_IP = "172.29.16.108"
 #UDP_IP = "192.168.1.113" # The IP that is printed in the serial monitor from the ESP32
 SHARED_UDP_PORT = 4210
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # Internet  # UDP
