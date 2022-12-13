@@ -9,5 +9,5 @@ s.waitForBoot {
      freq = args[1];
 }, '/freqency');
 
-{SinOsc.ar(LinLin.kr(freq, 3000, 32767, 25, 4186))}.play
+{SinOsc.ar(LinLin.ar(Clip.ar(freq, 3000, 32767), 3000, 32767, 25, 4186))}.play
 }

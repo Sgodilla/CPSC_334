@@ -5,5 +5,5 @@ s.waitForBoot {
     OSCFunc({ | args |
 	 "Softpot Val: ':".post;
 	 args[1].postln;
-}, '/tester');
+}, '/frequency');
 }
