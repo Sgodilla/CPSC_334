@@ -4,10 +4,14 @@ s.waitForBoot {
     //OSCFunc.trace(true);
     // this example is basically like OSCFunc.trace but filters out
     // /status.reply messages
-    f = { |msg, time, addr|
-        if(msg[0] != '/status.reply') {
-            "message: %\n".postf(time, addr, msg);
-        }
-    };
-    thisProcess.addOSCRecvFunc(f);
+    OSCdef(\tester,
+        {|msg, time, addr, recvPort|
+
+        post('Revceived message to path: ');
+        msg[0].postln;
+
+        post('With value: ');
+        msg[1].postln;
+
+        },'/test/another', n);
 }
