@@ -55,7 +55,7 @@ while True:
         values[i] = adc.read_adc(i, gain=GAIN)
 
         # Send value to Supercollider via OSC
-        client.send_message("/tester", values[0]);
+        client.send_message("/tester", values);
 
         # Note you can also pass in an optional data_rate parameter that controls
         # the ADC conversion time (in samples/second). Each chip has a different
