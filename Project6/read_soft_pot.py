@@ -3,10 +3,23 @@
 # Author: Tony DiCola
 # License: Public Domain
 import time
+import argparse
+
+# Import OSC module.
+from pythonosc import udp_client
 
 # Import the ADS1x15 module.
 import Adafruit_ADS1x15
 
+# Setup OSC Client
+parser = argparse.ArgumentParser()
+parser.add_argument("--ip", default="127.0.0.1",
+    help="The ip of the OSC server")
+parser.add_argument("--port", type=int, default=57120,
+    help="The port the OSC server is listening on")
+args = parser.parse_args()
+
+client = udp_client.SimpleUDPClient(args.ip, args.port)
 
 # Create an ADS1115 ADC (16-bit) instance.
 adc = Adafruit_ADS1x15.ADS1115()
@@ -40,6 +53,10 @@ while True:
     for i in range(4):
         # Read the specified ADC channel using the previously set gain value.
         values[i] = adc.read_adc(i, gain=GAIN)
+
+        # Send value to Supercollider via OSC
+        client.send_message("Soft Pot: ", values[0]);
+
         # Note you can also pass in an optional data_rate parameter that controls
         # the ADC conversion time (in samples/second). Each chip has a different
         # set of allowed data rate values, see datasheet Table 9 config register
