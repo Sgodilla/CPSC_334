@@ -6,11 +6,8 @@ s.waitForBoot {
     // /status.reply messages
     f = { |msg, time, addr|
         if(msg[0] != '/status.reply') {
-            "time: %, sender: %, message: %\n".postf(time, addr, msg);
+            "message: %\n".postf(time, addr, msg);
         }
     };
     thisProcess.addOSCRecvFunc(f);
-
-    // stop posting.
-    thisProcess.removeOSCRecvFunc(f);
 }
