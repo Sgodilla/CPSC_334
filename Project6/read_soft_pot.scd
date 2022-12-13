@@ -13,5 +13,5 @@ s.waitForBoot {
         post('With value: ');
         msg[1].postln;
 
-        },'/status.reply', n);
+        },'/tester', n);
 }
