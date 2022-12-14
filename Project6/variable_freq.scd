@@ -5,7 +5,7 @@ s.waitForBoot {
     SynthDef(\tone, {
         arg freq = 6000;
         var sig, frequency;
-        frequency = LinExp.kr(freq, 4000, 32767, 25, 4186);
+        frequency = LinLin.kr(freq, 4000, 32767, 25, 4186);
         sig = SinOsc.ar(frequency, 0, 0.2);
         Out.ar(0, sig);
         Out.ar(1, sig);
