@@ -8,7 +8,7 @@ s.waitForBoot {
 	    "Softpot Val: ':".post;
 	    args[1].postln;
         freq = LinLin.ar(Clip.ar(args[1], 3000, 32767), 3000, 32767, 25, 4186);
-        freq.postln;
-        {SinOsc.ar(freq, 0, 0.2)}.play;
     }, '/freqency');
+    
+    freq.postln;
 }

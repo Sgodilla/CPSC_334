@@ -1,3 +1,3 @@
 s.waitForBoot{
-    {SinOsc.ar}.play;
+    {SinOsc.ar(440)}.play;
 }
