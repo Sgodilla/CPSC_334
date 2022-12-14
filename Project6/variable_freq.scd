@@ -9,11 +9,10 @@ s.waitForBoot {
         env = Line.kr(1, 0, 1, doneAction:2);
         sig = SinOsc.ar(freq, 0, 0.2) * env;
         Out.ar(0, sig);
-        Out.ar(1, sig);
     }).add;
     );
 
-    Synth.new(\tone);
+    Synth.new(\tone, [\freq, 440]);
 
     (
     OSCdef.new(\play, {
@@ -22,6 +21,6 @@ s.waitForBoot {
         msg[1].asFloat.postln;
         Synth.new(\tone, [\freq, msg[1]]);
     });
-    }, "/frequency");
+    }, '/frequency');
     );
 }
