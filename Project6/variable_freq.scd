@@ -3,24 +3,23 @@ s.waitForBoot {
     OSCFunc.trace(false);
 
     (
-    SynthDef.new("ping", {
+    SynthDef.new(\tone, {
         arg freq = 440;
         var sig, env;
         env = Line.kr(1, 0, 1, doneAction:2);
         sig = SinOsc.ar(freq, 0, 0.2) * env;
         Out.ar(0, sig);
     }).add;
-    );
+    )
 
-    Synth.new("ping", [\freq, 440]);
+    Synth.new(\tone, [\freq, 440]);
 
     (
     OSCdef.new(\play, {
     arg msg, time, addr, port;
-    if (msg[1].asFloat > 3000, {
+    if (msg[1].asFloat > 3000) {
         msg[1].asFloat.postln;
-        Synth.new("ping", [\freq, msg[1]]);
-    });
-    }, "/frequency");
+        Synth.new(\tone, [\freq, msg[1]]);
+    }}, "/frequency");
     );
 }
