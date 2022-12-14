@@ -3,7 +3,7 @@ s.waitForBoot {
     OSCFunc.trace(false);
 
     (
-    SynthDef(\tone, {
+    SynthDef("mySynth", {
         arg freq = 440;
         var sig, env;
         env = Line.kr(1, 0, 1, doneAction:2);
@@ -12,7 +12,7 @@ s.waitForBoot {
     }).add;
     );
 
-    Synth(\tone, [\freq, 440]);
+    x = Synth("mySynth");
 
     (
     OSCdef.new(\play, {
