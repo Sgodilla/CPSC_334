@@ -19,7 +19,7 @@ s.waitForBoot {
     arg msg, time, addr, port;
     if (msg[1].asFloat > 3000, {
         msg[1].asFloat.postln;
-        f = LinExp.ar(msg[1].asFloat, 4000, 32767, 25, 4186);
+        f = LinExp.kr(msg[1].asFloat, 4000, 32767, 25, 4186);
         x.set(\freq, f);
     }, {
         x.set(\freq, 440);
