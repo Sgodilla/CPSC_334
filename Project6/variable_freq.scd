@@ -5,7 +5,7 @@ s.waitForBoot {
     OSCFunc.trace(false);
     OSCFunc({ | args |
 	 "Freq Val: ':".post;
-     freq = args[1];
+     freq = Fold.ar(args[1], 3000, 32767);
      freq.postln;
 }, '/frequency');
 }
