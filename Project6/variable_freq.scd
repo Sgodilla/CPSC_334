@@ -3,9 +3,11 @@ s.waitForBoot {
     n = NetAddr.new("127.0.0.1", 57120);    // create the NetAddr
     OSCFunc.trace(false);
 
-    SynthDef("mySine1", {Out.ar(0, SinOsc.ar(770, 0, 0.1))}).add;
+    SynthDef(\test, {Out.ar(0, SinOsc.ar(770, 0, 0.1))}).add;
+    s.sync;
 
-    x = Synth("mySine1");
+    x = Synth(\test);
+    s.sync;
 
     (
     OSCdef.new(\play, {
