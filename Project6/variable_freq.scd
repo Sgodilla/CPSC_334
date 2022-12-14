@@ -3,7 +3,7 @@ s.waitForBoot {
     OSCFunc.trace(false);
 
     (
-    SynthDef.new(\tone, {
+    SynthDef(\tone, {
         arg freq = 440;
         var sig, env;
         env = Line.kr(1, 0, 1, doneAction:2);
