@@ -8,5 +8,6 @@ s.waitForBoot {
 	    "Softpot Val: ':".post;
 	    args[1].postln;
         freq = LinLin.ar(args[1], 3000, 32767, 25, 4186);
+        freq.postln;
     }, '/freqency');
 }
