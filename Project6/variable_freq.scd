@@ -20,7 +20,7 @@ s.waitForBoot {
     arg msg, time, addr, port;
     if (msg[1].asFloat > 3000) {
         msg[1].asFloat.postln;
-        Synth(\tone, [\freq, LinExp.ar(msg[1], 4000, 32767, 25, 4186)]);
+        Synth(\tone, [\freq, msg[1].asFloat]);
     }
     }, '/frequency');
     );
