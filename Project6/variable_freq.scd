@@ -5,7 +5,7 @@ s.waitForBoot {
     SynthDef(\tone, {
         arg freq = 440;
         var sig, env;
-        env = Line.kr(1, 0, 1, doneAction:2);
+        env = Line.kr(1, 0, 0.125, doneAction:2);
         sig = SinOsc.ar(freq, 0, 0.2) * env;
         Out.ar(0, sig);
         Out.ar(1, sig);
@@ -20,7 +20,7 @@ s.waitForBoot {
     arg msg, time, addr, port;
     if (msg[1].asFloat > 3000) {
         msg[1].asFloat.postln;
-        Synth(\tone, [\freq, msg[1]]);
+        Synth(\tone, [\freq, LinExp.ar(msg[1], 4000, 32767, 25, 4186)]);
     }
     }, '/frequency');
     );
