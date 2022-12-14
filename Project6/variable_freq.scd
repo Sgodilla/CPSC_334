@@ -5,7 +5,7 @@ s.waitForBoot {
     OSCFunc.trace(false);
     OSCFunc({ | args |
 	 "Freq Val: ':".post;
-     freq = Clip.ar(args[1].asFloat, 3000, 32767);
+     freq = LinLin.ar(args[1].asFloat, -10, 32767, -3000, 4186);
      freq.postln;
 }, '/frequency');
 }
