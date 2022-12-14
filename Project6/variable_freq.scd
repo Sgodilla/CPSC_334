@@ -4,9 +4,8 @@ s.waitForBoot {
 
     SynthDef(\tone, {
         arg freq = 440;
-        var sig, env;
-        env = Line.kr(1, 0, 0.125, doneAction:2);
-        sig = SinOsc.ar(freq, 0, 0.2) * env;
+        var sig;
+        sig = SinOsc.ar(freq, 0, 0.2);
         Out.ar(0, sig);
         Out.ar(1, sig);
     }).add;
@@ -21,8 +20,6 @@ s.waitForBoot {
     if (msg[1].asFloat > 3000, {
         msg[1].asFloat.postln;
         x.set(\freq, msg[1].asFloat);
-    }, {
-        x.set(\freq, 0);
     })
     }, '/frequency');
     );
