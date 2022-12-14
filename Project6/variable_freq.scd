@@ -8,7 +8,7 @@ s.waitForBoot {
         msg[1].asFloat.postln;
     }
     }, "/frequency");
-    )
+    );
 
     (
     SynthDef.new(\tone, {
@@ -18,7 +18,7 @@ s.waitForBoot {
         sig = SinOsc.ar(freq, 0, 0.4) * env;
         Out.ar(out, sig);
     }).add;
-    )
+    );
 
     (
     OSCdef.new(\play, {
@@ -27,5 +27,5 @@ s.waitForBoot {
         Synth.new(\tone, [\freq, msg[1]]);
     }
     }, "/frequency");
-    )
+    );
 }
