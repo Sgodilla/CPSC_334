@@ -12,7 +12,7 @@ s.waitForBoot {
     }).add;
     s.sync;
 
-    var synth = Synth(\tone);
+    x = Synth(\tone);
     s.sync;
 
     (
@@ -20,9 +20,9 @@ s.waitForBoot {
     arg msg, time, addr, port;
     if (msg[1].asFloat > 3000, {
         msg[1].asFloat.postln;
-        synth.set(\freq, msg[1].asFloat);
+        x.set(\freq, msg[1].asFloat);
     }, {
-        synth.set(\freq, 0);
+        x.set(\freq, 0);
     })
     }, '/frequency');
     );
