@@ -8,6 +8,7 @@ s.waitForBoot {
         env = Line.kr(1, 0, 1, doneAction:2);
         sig = SinOsc.ar(freq, 0, 0.2) * env;
         Out.ar(0, sig);
+        Out.ar(1, sig);
     }).add;
     s.sync;
 
