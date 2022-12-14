@@ -9,6 +9,4 @@ s.waitForBoot {
 	    args[1].postln;
         freq = LinLin.ar(Clip.ar(args[1], 3000, 32767), 3000, 32767, 25, 4186);
     }, '/freqency');
-    
-    freq.postln;
 }
