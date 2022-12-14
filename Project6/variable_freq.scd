@@ -19,8 +19,7 @@ s.waitForBoot {
     arg msg, time, addr, port;
     if (msg[1].asFloat > 3000) {
         msg[1].asFloat.postln;
-        Synth.new(\tone, [\freq, msg[1]]);
-        s.sync;
+        Synth(\tone, [\freq, msg[1]]);
     }
     }, '/frequency');
     );
