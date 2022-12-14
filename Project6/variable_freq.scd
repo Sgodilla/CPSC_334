@@ -2,15 +2,15 @@ s.waitForBoot {
     n = NetAddr.new("127.0.0.1", 57120);    // create the NetAddr
     OSCFunc.trace(false);
 
-    (
+    {
     SynthDef("mySynth", {
-        arg freq = 440;
+        |freq = 440|
         var sig, env;
         env = Line.kr(1, 0, 1, doneAction:2);
         sig = SinOsc.ar(freq, 0, 0.2) * env;
         Out.ar(0, sig);
     }).add;
-    );
+    };
 
     x = Synth("mySynth");
 
