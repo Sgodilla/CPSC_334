@@ -7,6 +7,6 @@ s.waitForBoot {
     OSCFunc({ | args |
 	    "Softpot Val: ':".post;
 	    args[1].postln;
-        freq = LinLin.ar(Clip.ar(args[1], 3000, 32767), 3000, 32767, 25, 4186);
+        freq = LinLin.ar(args[1], 3000, 32767, 25, 4186);
     }, '/freqency');
 }
