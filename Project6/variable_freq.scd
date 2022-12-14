@@ -3,15 +3,6 @@ s.waitForBoot {
     OSCFunc.trace(false);
 
     (
-    OSCdef.new(\print, {
-    arg msg, time, addr, port;
-    if (msg[1].asFloat > 3000) {
-        msg[1].asFloat.postln;
-    }
-    }, '/frequency');
-    );
-
-    (
     SynthDef.new(\tone, {
         arg freq = 440;
         var sig, env;
@@ -21,7 +12,7 @@ s.waitForBoot {
     }).add;
     );
 
-    //Synth.new(\tone, [\freq, 440]);
+    Synth(\tone, [\freq, 440]);
 
     (
     OSCdef.new(\play, {
