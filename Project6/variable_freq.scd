@@ -1,6 +1,6 @@
 s.waitForBoot {
     n = NetAddr.new("127.0.0.1", 57120);    // create the NetAddr
-    OSCFunc.trace(false);
+    OSCFunc.trace(true);
 
     SynthDef.new(\tone, {
         arg freq = 440;
@@ -17,5 +17,6 @@ s.waitForBoot {
     if (msg[1].asFloat > 3000) {
         msg[1].asFloat.postln;
         //Synth.new(\tone, [\freq, msg[1]]);
-    }}, "/frequency");
+    }
+    }, '/frequency');
 }
