@@ -5,7 +5,9 @@ s.waitForBoot {
     (
     OSCdef.new(\freq, {
     arg msg, time, addr, port;
-    msg[1].asFloat.postln;
+    if (msg[1].asFloat > 3000) {
+        msg[1].asFloat.postln;
+    }
     }, "/frequency");
     )
 }
