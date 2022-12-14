@@ -12,7 +12,7 @@ s.waitForBoot {
     }).add;
     s.sync;
 
-    synth = Synth(\tone);
+    var synth = Synth(\tone);
     s.sync;
 
     (
