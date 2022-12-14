@@ -3,9 +3,9 @@ s.waitForBoot {
     OSCFunc.trace(false);
 
     SynthDef(\tone, {
-        arg freq = 6000;
+        arg freq = 16000;
         var sig, frequency;
-        frequency = LinExp.kr(freq, 4000, 32767, 25, 1000);
+        frequency = LinExp.kr(freq, 4000, 32767, 50, 500);
         sig = SinOsc.ar(frequency, 0, 0.2);
         Out.ar(0, sig);
         Out.ar(1, sig);
@@ -22,7 +22,7 @@ s.waitForBoot {
         msg[1].asFloat.postln;
         x.set(\freq, msg[1].asFloat);
     }, {
-        x.set(\freq, 0);
+        x.set(\freq, 16000);
     })
     }, '/frequency');
     );
