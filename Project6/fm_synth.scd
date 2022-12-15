@@ -3,13 +3,13 @@ s.waitForBoot{
     OSCFunc.trace(false);
 
     SynthDef(\tone, {
-        arg p1 = 14000, p2 = 14000, p3 = 14000, p4 = 14000;
+        arg p1 = 4000, p2 = 14000, p3 = 12000, p4 = 12000;
         var car, mod, carHz, modHz, modAmp;
         carHz = LinExp.kr(p1, 4000, 32767, 50, 500);
-        modHz = LinLin.kr(p2, 4000, 32767, 50, 2000);
-        modAmp = LFNoise0.kr(LinLin.kr(p3, 4000, 32767, 0, 1000)).range(5, 500);
+        modHz = LinExp.kr(p2, 14000, 32767, 50, 20000);
+        modAmp = LFNoise0.kr(LinLin.kr(p3, 12000, 32767, 50, 10000)).range(5, 500);
         mod = SinOsc.ar(modHz, mul:modAmp);
-        car = SinOsc.ar(carHz + mod);
+        car = LFPulse.ar(carHz + mod, 0, 0.2);
         Out.ar(0, car);
         Out.ar(1, car);
     }).add;
