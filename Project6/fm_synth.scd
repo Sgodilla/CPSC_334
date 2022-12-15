@@ -8,7 +8,7 @@ s.waitForBoot{
         carHz = LinExp.kr(p1, 4000, 32767, 50, 500);
         modHz = LinLin.kr(p2, 4000, 32767, 50, 2000);
         modAmp = LFNoise0.kr(LinLin.kr(p3, 4000, 32767, 0, 1000)).range(5, 500);
-        mod = SinOsc.ar(modHz, mul:modAmp)
+        mod = SinOsc.ar(modHz, mul:modAmp);
         car = SinOsc.ar(carHz + mod);
         Out.ar(0, car);
         Out.ar(1, car);
