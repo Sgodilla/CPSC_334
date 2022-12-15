@@ -7,7 +7,7 @@ s.waitForBoot{
         var car, carHz, modHz, pulse;
         carHz = LinExp.kr(p1, 4000, 32767, 20, 500);
         modHz = LFTri.ar(LinLin.kr(p2, 14000, 32767, 0, 1000), mul:100);
-        pulse = LFSaw.ar(LinLin.kr(p3, 12000, 32767, 1, 1000), mul:0.2);
+        pulse = LFTri.ar(LinExp.kr(p3, 12000, 32767, 1, 500), mul:0.2);
         car = LFTri.ar(carHz + modHz, mul:pulse);
         Out.ar(0, car);
         Out.ar(1, car);
