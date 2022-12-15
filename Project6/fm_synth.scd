@@ -10,7 +10,7 @@ s.waitForBoot{
         noiseHz = LFNoise0.kr(LinLin.kr(p3, 12000, 32767, 50, 10000)).range(0, 1);
         widthHz = LinLin.kr(p4, 12000, 32767, 0, 1);
         mod = SinOsc.ar(modHz);
-        car = LFSaw.ar(carHz + mod, mul:0.2);
+        car = LFTri.ar(carHz + mod, mul:0.2);
         Out.ar(0, car);
         Out.ar(1, car);
     }).add;
