@@ -8,7 +8,6 @@ s.waitForBoot{
         carHz = LinExp.kr(p1, 4000, 32767, 20, 500);
         modHz = LFTri.ar(LinLin.kr(p2, 14000, 32767, 0, 1000));
         noiseHz = LFNoise0.ar(LinLin.kr(p3, 12000, 32767, 20, 20000), 200, 200);
-        widthHz = LinLin.kr(p4, 12000, 32767, 0, 1);
         car = LFTri.ar(carHz + modHz, mul:0.2);
         Out.ar(0, car);
         Out.ar(1, car);
