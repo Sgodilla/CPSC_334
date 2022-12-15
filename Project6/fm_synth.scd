@@ -7,9 +7,9 @@ s.waitForBoot{
         var car, mod, carHz, modHz, noiseHz, widthHz;
         carHz = LinExp.kr(p1, 4000, 32767, 20, 500);
         modHz = LinLin.kr(p2, 14000, 32767, 0, 1000);
-        noiseHz = LFNoise0.kr(LinLin.kr(p3, 12000, 32767, 50, 10000)).range(0, 1);
+        modAmp = LinLin.kr(p3, 12000, 32767, 50, 500);
         widthHz = LinLin.kr(p4, 12000, 32767, 0, 1);
-        mod = LFTri.ar(modHz);
+        mod = LFTri.ar(modHz, mul:modAmp);
         car = LFTri.ar(carHz + mod, mul:0.2);
         Out.ar(0, car);
         Out.ar(1, car);
