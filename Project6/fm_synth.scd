@@ -24,13 +24,13 @@ s.waitForBoot{
     msg.postln;
     if (msg[1].asFloat > 3000, {
         x.set(\p1, msg[1].asFloat);
-    })
+    });
     if (msg[2].asFloat > 3000, {
         x.set(\p2, msg[2].asFloat);
-    })
+    });
     if (msg[3].asFloat > 3000, {
         x.set(\p3, msg[3].asFloat);
-    })
+    });
     }, '/frequency');
     );
 }
