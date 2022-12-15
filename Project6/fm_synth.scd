@@ -5,12 +5,12 @@ s.waitForBoot{
     SynthDef(\tone, {
         arg p1 = 4000, p2 = 14000, p3 = 12000, p4 = 12000;
         var car, mod, carHz, modHz, noiseHz, widthHz;
-        carHz = LinExp.kr(p1, 4000, 32767, 50, 500);
-        modHz = LinExp.kr(p2, 14000, 32767, 50, 20000);
+        carHz = LinExp.kr(p1, 4000, 32767, 20, 500);
+        modHz = LinExp.kr(p2, 14000, 32767, 20, 20000);
         noiseHz = LFNoise0.kr(LinLin.kr(p3, 12000, 32767, 50, 10000)).range(0, 1);
         widthHz = LinLin.kr(p4, 12000, 32767, 0, 1);
         mod = SinOsc.ar(modHz, mul:noiseHz);
-        car = LFPulse.ar(carHz + mod, width:widthHz, mul:0.2);
+        car = LFSaw.ar(carHz + mod, mul:0.2);
         Out.ar(0, car);
         Out.ar(1, car);
     }).add;
