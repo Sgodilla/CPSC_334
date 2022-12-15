@@ -6,7 +6,7 @@ s.waitForBoot{
         arg p1 = 4000, p2 = 14000, p3 = 12000, p4 = 12000;
         var car, carHz, modHz, modAmp, pulse;
         carHz = LinExp.kr(p1, 4000, 32767, 20, 500);
-        modAmp = LinExp.kr(p3, 12000, 32767, 1, 500);
+        modAmp = LinLin.kr(p3, 12000, 32767, 25, 500);
         modHz = LFTri.ar(LinLin.kr(p2, 14000, 32767, 0, 1000), mul:modAmp);
         pulse = LFTri.ar(LinExp.kr(p4, 12000, 32767, 1, 500), mul:0.2);
         car = LFTri.ar(carHz + modHz, mul:pulse);
