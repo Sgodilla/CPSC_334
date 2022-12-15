@@ -4,7 +4,7 @@ s.waitForBoot{
 
     SynthDef(\tone, {
         arg p1 = 14000, p2 = 14000, p3 = 14000, p4 = 14000;
-        var sig, carHz, modHz, modAmp;
+        var car, mod, carHz, modHz, modAmp;
         carHz = LinExp.kr(p1, 4000, 32767, 50, 500);
         modHz = LinLin.kr(p2, 4000, 32767, 50, 2000);
         modAmp = LFNoise0.kr(LinLin.kr(p3, 4000, 32767, 0, 1000)).range(5, 500);
