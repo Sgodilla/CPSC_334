@@ -19,10 +19,10 @@ s.waitForBoot {
     OSCdef.new(\play, {
     arg msg, time, addr, port;
     if (msg[1].asFloat > 3000, {
-        msg.postln;
+        msg[1..].postln;
         x.set(\freq, msg[1].asFloat);
     }, {
-        msg.postln;
+        msg[1..].postln;
         x.set(\freq, 16000);
     })
     }, '/frequency');
