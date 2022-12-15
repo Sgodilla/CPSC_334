@@ -9,9 +9,9 @@ s.waitForBoot{
         modHz = LFTri.ar(LinLin.kr(p2, 14000, 32767, 0, 1000), mul:100);
         pulseWidth = LinLIn.ar(p3, 12000, 32767, 0, 1);
         car = LFTri.ar(carHz + modHz + noiseHz, mul:0.2);
-        pulse = LFPulse.ar(car, width:pulseWidth)
-        Out.ar(0, car);
-        Out.ar(1, car);
+        pulse = LFPulse.ar(car, width:pulseWidth);
+        Out.ar(0, pulse);
+        Out.ar(1, pulse);
     }).add;
     s.sync;
 
