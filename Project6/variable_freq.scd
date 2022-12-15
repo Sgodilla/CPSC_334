@@ -22,6 +22,7 @@ s.waitForBoot {
         msg.postln;
         x.set(\freq, msg[1].asFloat);
     }, {
+        msg.postln;
         x.set(\freq, 16000);
     })
     }, '/frequency');
