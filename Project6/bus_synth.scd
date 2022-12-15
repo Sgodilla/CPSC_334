@@ -1,10 +1,11 @@
+~p1 = Bus.control(s, 1);
+~p2 = Bus.control(s, 1);
+~p3 = Bus.control(s, 1);
+~p4 = Bus.control(s, 1);
+
 s.waitForBoot{
     n = NetAddr.new("127.0.0.1", 57120);    // create the NetAddr
     OSCFunc.trace(false);
-    ~p1 = Bus.control(s, 1);
-    ~p2 = Bus.control(s, 1);
-    ~p3 = Bus.control(s, 1);
-    ~p4 = Bus.control(s, 1);
 
     SynthDef(\tone, {
         var car, modHz, modAmp, pulse;
