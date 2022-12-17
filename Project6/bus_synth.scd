@@ -1,10 +1,10 @@
 s.waitForBoot{
     n = NetAddr.new("127.0.0.1", 57120);    // create the NetAddr
     OSCFunc.trace(false);
-    ~a = Bus.control(s, 1); a.set(20);
-    ~b = Bus.control(s, 1); b.set(0);
-    ~c = Bus.control(s, 1); c.set(25);
-    ~d = Bus.control(s, 1); d.set(1);
+    a = Bus.control(s, 1); a.set(20); a.index.postln;
+    b = Bus.control(s, 1); b.set(0); b.index.postln;
+    c = Bus.control(s, 1); c.set(25); c.index.postln;
+    d = Bus.control(s, 1); d.set(1); d.index.postln;
 
     SynthDef(\tone, {
         arg p1 = 20, p2 = 0, p3 = 25, p4 = 1;
@@ -18,7 +18,10 @@ s.waitForBoot{
     s.sync;
 
     x = Synth(\tone);
-    x.map(\p1, a, \p2, b, \p3, c, \p4, d);
+    x.map(\p1, a.index);
+    x.map(\p2, b.index);
+    x.map(\p3, c.index);
+    x.map(\p4, d.index);
     s.sync;
 
     (
