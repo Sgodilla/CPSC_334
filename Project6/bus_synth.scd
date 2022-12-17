@@ -18,7 +18,7 @@ s.waitForBoot{
     s.sync;
 
     x = Synth(\tone);
-    x.map(\p1, a.index, \p2, b.index, \p3, c.index, \p4, d.index);
+    x.map(\p1, a, \p2, b, \p3, c, \p4, d);
     s.sync;
 
     (
