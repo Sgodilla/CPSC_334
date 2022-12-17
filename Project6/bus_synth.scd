@@ -1,11 +1,10 @@
-~a = Bus.control(s, 1); a.set(20);
-~b = Bus.control(s, 1); b.set(0);
-~c = Bus.control(s, 1); c.set(25);
-~d = Bus.control(s, 1); d.set(1);
-
 s.waitForBoot{
     n = NetAddr.new("127.0.0.1", 57120);    // create the NetAddr
     OSCFunc.trace(false);
+    ~a = Bus.control(s, 1); a.set(20);
+    ~b = Bus.control(s, 1); b.set(0);
+    ~c = Bus.control(s, 1); c.set(25);
+    ~d = Bus.control(s, 1); d.set(1);
 
     SynthDef(\tone, {
         arg p1 = 20, p2 = 0, p3 = 25, p4 = 1;
